@@ -45,7 +45,7 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
             "profile_image": ""
         }
          */
-        //nkjsnjfsh
+
 
     }
 }
