@@ -6,6 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
 public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
@@ -74,9 +75,12 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
 
         //2-expected data hazirla
         //3-Response'i kaydet
+
         Response response=given().spec(specJsonPlace).when().get("/{pp1}/{pp2}");
+
         //4-Assertion
-        response.then().assertThat().statusCode(200).body("title",Matchers.containsString("optio dolor molestias sit"));
+
+        response.then().assertThat().statusCode(200).body("title",equalTo("optio dolor molestias sit"));
 
 
 
