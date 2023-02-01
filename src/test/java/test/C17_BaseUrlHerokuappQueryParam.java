@@ -84,7 +84,9 @@ public class C17_BaseUrlHerokuappQueryParam extends HerokuappBaseUrl {
 
         //4-Assertion
 
-        response.then().assertThat().statusCode(200).body("bookingid",hasSize(1));
+        response.then().assertThat().
+                statusCode(200).
+                body("bookingid",hasSize(1));
 
 
     }
@@ -110,7 +112,9 @@ public class C17_BaseUrlHerokuappQueryParam extends HerokuappBaseUrl {
         response.prettyPrint();
 
         //4-Assertion
-      response.then().assertThat().statusCode(200).body("bookingid",hasSize(1));
+      response.then().assertThat().
+              statusCode(200).
+              body("bookingid",hasSize(1));
 
     }
 
