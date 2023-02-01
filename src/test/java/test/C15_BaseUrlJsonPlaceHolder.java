@@ -6,8 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 
 public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
 
@@ -95,6 +94,12 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
             request gonderdigimizde donen response’un status code’unun 200 oldugunu ve
             response body’sinin null oldugunu test edin
          */
+        specJsonPlace.pathParams("pp1","posts","pp2",50);
+        Response response=given().spec(specJsonPlace).when().delete("/{pp1}/{pp2}");
+        response.prettyPrint();
+
+        response.then().assertThat().statusCode(200).body("body",nullValue());
+
     }
 
 
